@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WebApi.DbOperations;
+using WebApi.Models;
 
 namespace WebApi.Controllers
 {
@@ -13,7 +15,7 @@ namespace WebApi.Controllers
     {
         private readonly SupplierDbContext _context;
 
-        public BookController(SupplierDbContext context)
+        public SupplierController(SupplierDbContext context)
         {
             _context = context;
         }
@@ -21,8 +23,8 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            
-            return Ok();
+            var suppliers = _context.Suppliers.ToList();
+            return Ok(suppliers);
         }
 
         [HttpGet("{id}")]
@@ -32,13 +34,13 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddSupplier([FromBody] Supplier newSupplier) // model ile olacak
+        public IActionResult Store([FromBody] Supplier newSupplier) // model ile olacak
         {
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateSupplier(int id, [FromBody] Supplier updatedSupplier) // model ile olacak
+        public IActionResult Edit(int id, [FromBody] Supplier updatedSupplier) // model ile olacak
         {
            
             return Ok();

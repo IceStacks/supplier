@@ -16,7 +16,7 @@ namespace WebApi.DbOperations
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             // connect to mysql with connection string from app settings
-            var connectionString = Configuration.GetConnectionString("supplierDb");
+            var connectionString = Configuration.GetConnectionString("IceStacks-Supplier");
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
         public DbSet<Supplier> Suppliers { get; set; }
