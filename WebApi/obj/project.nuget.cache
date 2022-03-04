@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gNPC7YpqRZJxBMSJnsrXaqZNUScQj5o5qB7c9l5nETEjHdo0+A7U3NsBsUyjWgvzY2P0DeeHwV4yXeS0HdKAAw==",
+  "dgSpecHash": "k//P2pKf8ZZfJr4JxD/HHnhAOLbE5LEBtoIOiMnVf4aSlCVzuzWtc+6eBiolI+PW3wcTzLc89t8ynluyddC4Rg==",
   "success": true,
   "projectFilePath": "/home/ahmet/projects/IceStacks/supplier/WebApi/WebApi.csproj",
   "expectedPackageFiles": [
@@ -23,8 +23,7 @@
     "/home/ahmet/.nuget/packages/microsoft.extensions.options/5.0.0/microsoft.extensions.options.5.0.0.nupkg.sha512",
     "/home/ahmet/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "/home/ahmet/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
-    "/home/ahmet/.nuget/packages/mysqlconnector/1.3.7/mysqlconnector.1.3.7.nupkg.sha512",
-    "/home/ahmet/.nuget/packages/pomelo.entityframeworkcore.mysql/5.0.0/pomelo.entityframeworkcore.mysql.5.0.0.nupkg.sha512",
+    "/home/ahmet/.nuget/packages/mysqlconnector/2.1.7/mysqlconnector.2.1.7.nupkg.sha512",
     "/home/ahmet/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "/home/ahmet/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
     "/home/ahmet/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
