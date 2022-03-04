@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MySqlConnector;
+using WebApi.DbOperations;
 
 namespace WebApi
 {
@@ -27,6 +29,7 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddTransient<MySqlConnection>(_ => new MySqlConnection(Configuration["ConnectionStrings:Default"]));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
