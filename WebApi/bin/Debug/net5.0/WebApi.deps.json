@@ -36,7 +36,6 @@
           "Microsoft.EntityFrameworkCore": "5.0.6",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.6",
           "MySqlConnector": "2.1.7",
-          "Pomelo.EntityFrameworkCore.MySql": "5.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -392,9 +391,6 @@
             "assemblyVersion": "5.0.6.0",
             "fileVersion": "5.0.621.21307"
           }
-        },
-        "compile": {
-          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Tools/5.0.6": {
@@ -473,22 +469,6 @@
         },
         "compile": {
           "lib/net5.0/MySqlConnector.dll": {}
-        }
-      },
-      "Pomelo.EntityFrameworkCore.MySql/5.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.6",
-          "Microsoft.Extensions.DependencyInjection": "5.0.1",
-          "MySqlConnector": "2.1.7"
-        },
-        "runtime": {
-          "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll": {}
         }
       },
       "Swashbuckle.AspNetCore/5.6.3": {
@@ -2384,13 +2364,6 @@
       "sha512": "sha512-QUT9GBKp1kNwmR4fCpBlhq2icoYPdt0rZMj0Qx9sHkx1kuN2vibP5eevHNeQ2Qk7QC3ci2zrcf4ZrCHhBl4I2Q==",
       "path": "mysqlconnector/2.1.7",
       "hashPath": "mysqlconnector.2.1.7.nupkg.sha512"
-    },
-    "Pomelo.EntityFrameworkCore.MySql/5.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-5T1c5sjnzhryUwD647l209Fsvhfzu1R5vS9G26HuT6T8tEtli9xTBJInge+17Cqy2Q2XTYug+vVfTk3gNH5Zjw==",
-      "path": "pomelo.entityframeworkcore.mysql/5.0.0",
-      "hashPath": "pomelo.entityframeworkcore.mysql.5.0.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/5.6.3": {
       "type": "package",
