@@ -35,5 +35,9 @@ MySql kullanmak için **WebApi** içerisinde:
  
  ### Index
  ![getSuppliers](https://user-images.githubusercontent.com/44196434/156747164-85f255bb-82e3-4797-ba2c-26babbffbcfe.png)
+ 
+ ## Show
+ ![supplierShow](https://user-images.githubusercontent.com/44196434/156756599-db44c95e-e759-4efa-9e69-862c1d772bfa.png)
 
-
+ ## Store
+ ![supplierStore](https://user-images.githubusercontent.com/44196434/156756626-ae0b5eca-e379-438e-a4f8-f4bc90e189ba.png)
