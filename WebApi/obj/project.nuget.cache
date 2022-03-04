@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3kcqPKeRqR17UTlE4dLiw8wfgT1nzi5GR/1+3Nuo/cQenW9Rl+e1Pyr6qMwkDM9PwVkuA5OAsqFFNqLz8sJHKw==",
+  "dgSpecHash": "6uAxoKrlpkbAbus8ITwZFb75xwy1NWL+CuNhm7EZRjGDQ9sHOtyOPME5QnFkGxDJTQcyUdc+DtOhRXQwXREf9g==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj",
+  "projectFilePath": "c:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ahmet\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Ahmet\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
