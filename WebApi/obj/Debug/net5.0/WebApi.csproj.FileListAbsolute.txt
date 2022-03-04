@@ -44,7 +44,6 @@ C:/Projects/IceStacks/supplier/WebApi/bin/Debug/net5.0/Humanizer.dll
 /home/ahmet/projects/IceStacks/supplier/WebApi/bin/Debug/net5.0/WebApi.runtimeconfig.json
 /home/ahmet/projects/IceStacks/supplier/WebApi/bin/Debug/net5.0/WebApi.runtimeconfig.dev.json
 /home/ahmet/projects/IceStacks/supplier/WebApi/bin/Debug/net5.0/WebApi.dll
-/home/ahmet/projects/IceStacks/supplier/WebApi/bin/Debug/net5.0/ref/WebApi.dll
 /home/ahmet/projects/IceStacks/supplier/WebApi/bin/Debug/net5.0/WebApi.pdb
 /home/ahmet/projects/IceStacks/supplier/WebApi/bin/Debug/net5.0/Humanizer.dll
 /home/ahmet/projects/IceStacks/supplier/WebApi/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
@@ -74,3 +73,4 @@ C:/Projects/IceStacks/supplier/WebApi/bin/Debug/net5.0/Humanizer.dll
 /home/ahmet/projects/IceStacks/supplier/WebApi/obj/Debug/net5.0/ref/WebApi.dll
 /home/ahmet/projects/IceStacks/supplier/WebApi/obj/Debug/net5.0/WebApi.pdb
 /home/ahmet/projects/IceStacks/supplier/WebApi/obj/Debug/net5.0/WebApi.genruntimeconfig.cache
+/home/ahmet/projects/IceStacks/supplier/WebApi/obj/Debug/net5.0/refint/WebApi.dll
