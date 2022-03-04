@@ -28,6 +28,6 @@ EntityFrameworkCore **WebApi** içerisinde:
 
 MySql kullanmak için **WebApi** içerisinde:
 
-    dotnet add package Pomelo.EntityFrameworkCore.MySql 
+    dotnet add package MySqlConnector
 
 
