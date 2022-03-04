@@ -29,5 +29,11 @@ EntityFrameworkCore **WebApi** içerisinde:
 MySql kullanmak için **WebApi** içerisinde:
 
     dotnet add package MySqlConnector
+    
+    
+ # Ekran görüntüleri
+ 
+ ### Index
+ ![getSuppliers](https://user-images.githubusercontent.com/44196434/156747164-85f255bb-82e3-4797-ba2c-26babbffbcfe.png)
 
 
