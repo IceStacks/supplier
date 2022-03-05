@@ -27,7 +27,7 @@ namespace WebApi.Controllers
             
             if(suppliers is null)
             {
-                return NotFound();      // burada middleware yazilip oradan exception firlatilabilir.
+                return NotFound("Suppliers bulunamadi");      // burada middleware yazilip oradan exception firlatilabilir.
             }
 
             List<GetSuppliersViewModel> suppliersViewModel = _mapper.Map<List<GetSuppliersViewModel>>(suppliers);
@@ -43,7 +43,7 @@ namespace WebApi.Controllers
 
             if(supplier is null)
             {
-                return NotFound("asdasd");      
+                return NotFound("Supplier bulunamadi");      
             }
 
             GetSupplierDetailViewModel supplierViewModel = _mapper.Map<GetSupplierDetailViewModel>(supplier);
@@ -56,7 +56,7 @@ namespace WebApi.Controllers
         {
             if(newSupplier is null)
             {
-                return BadRequest();    
+                return BadRequest("CreateSupplierModel bulunamadi");    
             }
 
             Supplier supplier = _mapper.Map<Supplier>(newSupplier);  
@@ -78,7 +78,7 @@ namespace WebApi.Controllers
 
             if(supplier is null)
             {
-                return NotFound();      
+                return NotFound("Supplier bulunamadi");      
             }
 
             supplier = _mapper.Map<Supplier>(updatedSupplier);
@@ -96,7 +96,7 @@ namespace WebApi.Controllers
 
             if(supplier is null)
             {
-                return NotFound();      
+                return NotFound("Supplier bulunamadi");      
             }
 
             _context.Suppliers.Remove(supplier);
