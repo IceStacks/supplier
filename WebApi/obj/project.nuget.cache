@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G0m2oyzWG/dq4IyS7r+K/KvOONG4rROaaa123m+WLhmdT89//l1ycMqRDP/kE6fG6cubJXKHIzT+738fk8x62g==",
+  "dgSpecHash": "D17gMFW+W9ecPGsQvYTvKlEeBwWtUbcalliyGZm6o2QyYhSG7FKeffKntMsVpafy7leQPSk70n4ruoKI3caHQg==",
   "success": true,
-  "projectFilePath": "c:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ahmet\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Ahmet\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj": {}
+    "C:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "c:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj": {
+    "C:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "c:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj",
+        "projectPath": "C:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\Ahmet\\.nuget\\packages\\",
-        "outputPath": "c:\\Projects\\IceStacks\\supplier\\WebApi\\obj\\",
+        "outputPath": "C:\\Projects\\IceStacks\\supplier\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ahmet\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -18,8 +18,14 @@ namespace WebApi.DbOperations
         //     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         // }
 
-        public DbSet<Supplier> Suppliers { get; set; }
+        
         public SupplierDbContext(DbContextOptions<SupplierDbContext> options) : base(options)     {}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Supplier>().ToTable("Suppliers");
+        }
+        public DbSet<Supplier> Suppliers { get; set; }
+        
 
     }
 }
