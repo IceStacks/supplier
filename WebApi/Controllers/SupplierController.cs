@@ -66,11 +66,7 @@ namespace WebApi.Controllers
 
             return Ok();
         }
-
-
-        // guncelleme kisminda sorun var, guncelleme yapmak yerine yeni supplier yaratiyor. Duzenlenecek
         
-
         [HttpPut("{id}")]
         public IActionResult Edit(int id, [FromBody] UpdateSupplierModel updatedSupplier) 
         {
@@ -81,9 +77,7 @@ namespace WebApi.Controllers
                 return NotFound("Supplier bulunamadi");      
             }
 
-            supplier = _mapper.Map<Supplier>(updatedSupplier);
-            
-            _context.Update(supplier);
+            _mapper.Map(updatedSupplier, supplier);
             _context.SaveChanges();
 
             return Ok();
@@ -98,7 +92,7 @@ namespace WebApi.Controllers
             {
                 return NotFound("Supplier bulunamadi");      
             }
-
+    
             _context.Suppliers.Remove(supplier);
             _context.SaveChanges();
 
