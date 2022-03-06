@@ -20,15 +20,19 @@ Api'yi çalıştırmak için (**WebApi** klasörünün içerisinde):
 
 # Paketler
 
-EntityFrameworkCore **WebApi** içerisinde:
+Kullanılan paketleri Nuget Package Manager ile de kurabilirsiniz, terminalden kurmak için **WebApi** içerisinde:
 
-    dotnet add package Microsoft.EntityFrameworkCore 
+    dotnet add package AutoMapper -v 10.1.1
 
-    dotnet add package Microsoft.EntityFrameworkCore.Tools 
+    dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection -v 8.1.1
 
-MySql kullanmak için **WebApi** içerisinde:
+    dotnet add package Microsoft.EntityFrameworkCore -v 5.0.6
 
-    dotnet add package MySqlConnector
+    dotnet add package Microsoft.EntityFrameworkCore.Tools -v 5.0.6
+
+    dotnet add package Newtonsoft.json -v 13.0.1
+
+    dotnet add package Pomelo.EntityFrameworkCore.MySql -v 5.0
     
     
  # Ekran görüntüleri
