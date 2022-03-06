@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1WJBhUsfXGpLzL2TH9uxdkoudg6TRlXNxqVGBY83AiLmntWG6j2eR89hOL+S3b8nVOF50XSPh6oz/Te1xLKv5Q==",
+  "dgSpecHash": "+JG5Lmy3D7WO8CFOnjv1yM9eA8HQxdH/dEep3DeqiK7PbUlLTMcS5K9UK+DK0xxrPZ4egsn1QQP0P+PR/hOOrA==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj",
+  "projectFilePath": "c:\\Projects\\IceStacks\\supplier\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ahmet\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Ahmet\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
