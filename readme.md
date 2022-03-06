@@ -35,6 +35,20 @@ Kullanılan paketleri Nuget Package Manager ile de kurabilirsiniz, terminalden k
     dotnet add package Pomelo.EntityFrameworkCore.MySql -v 5.0
     
     
+<br>
+
+# Endpoints
+
+|HTTP|URL|METOT|
+|---|---|---|
+|GET| https://localhost:5001/suppliers |Index|
+|GET| https://localhost:5001/suppliers/id |Show|
+|PUT| https://localhost:5001/suppliers/id |Edit|
+|POST| https://localhost:5001/suppliers |Store|
+|DELETE| https://localhost:5001/suppliers/id |Edit|
+
+<br>
+
  # Ekran görüntüleri
  
  ### Index
