@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
@@ -25,11 +26,6 @@ namespace WebApi.Controllers
         {
             var suppliers = _context.Suppliers.ToList<Supplier>();
             
-            if(suppliers is null)
-            {
-                return NotFound("Suppliers bulunamadi");      // burada middleware yazilip oradan exception firlatilabilir.
-            }
-
             List<GetSuppliersViewModel> suppliersViewModel = _mapper.Map<List<GetSuppliersViewModel>>(suppliers);
 
             return Ok(suppliersViewModel);
@@ -43,9 +39,9 @@ namespace WebApi.Controllers
 
             if(supplier is null)
             {
-                return NotFound("Supplier bulunamadi");      
+                throw new InvalidOperationException("Aranan tedarikçi bulunamadı.");
             }
-
+            
             GetSupplierDetailViewModel supplierViewModel = _mapper.Map<GetSupplierDetailViewModel>(supplier);
 
             return Ok(supplierViewModel);
@@ -54,23 +50,21 @@ namespace WebApi.Controllers
         [HttpPost]
         public IActionResult Store([FromBody] CreateSupplierModel newSupplier) 
         {
-            if(newSupplier is null)
+            var supplier = _context.Suppliers.SingleOrDefault(supplier => supplier.Phone == newSupplier.Phone && supplier.Mail == newSupplier.Mail);
+
+            if(supplier is not null)
             {
-                return BadRequest("CreateSupplierModel bulunamadi");    
+                throw new InvalidOperationException("Eklenecek tedarikçi zaten mevcut.");
             }
 
-            Supplier supplier = _mapper.Map<Supplier>(newSupplier);  
+            supplier = _mapper.Map<Supplier>(newSupplier);  
 
             _context.Suppliers.Add(supplier); 
             _context.SaveChanges();
 
             return Ok();
         }
-
-
-        // guncelleme kisminda sorun var, guncelleme yapmak yerine yeni supplier yaratiyor. Duzenlenecek
         
-
         [HttpPut("{id}")]
         public IActionResult Edit(int id, [FromBody] UpdateSupplierModel updatedSupplier) 
         {
@@ -78,12 +72,10 @@ namespace WebApi.Controllers
 
             if(supplier is null)
             {
-                return NotFound("Supplier bulunamadi");      
+                throw new InvalidOperationException("Güncellenecek tedarikçi bulunamadı.");     
             }
 
-            supplier = _mapper.Map<Supplier>(updatedSupplier);
-            
-            _context.Update(supplier);
+            _mapper.Map(updatedSupplier, supplier);
             _context.SaveChanges();
 
             return Ok();
@@ -96,9 +88,9 @@ namespace WebApi.Controllers
 
             if(supplier is null)
             {
-                return NotFound("Supplier bulunamadi");      
+                throw new InvalidOperationException("Silinecek tedarikçi bulunamadı.");     
             }
-
+    
             _context.Suppliers.Remove(supplier);
             _context.SaveChanges();
 

@@ -10,7 +10,8 @@ namespace WebApi.Common
             CreateMap<Supplier, GetSuppliersViewModel>();
             CreateMap<Supplier, GetSupplierDetailViewModel>();
             CreateMap<CreateSupplierModel, Supplier>();
-            CreateMap<UpdateSupplierModel, Supplier>();
+            CreateMap<UpdateSupplierModel, Supplier>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => !srcMember.Equals("")));
         }
     }
 }
