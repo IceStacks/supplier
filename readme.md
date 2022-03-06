@@ -51,4 +51,3 @@ Kullanılan paketleri Nuget Package Manager ile de kurabilirsiniz, terminalden k
   
  ### Destroy
  ![deleteSupplier](https://user-images.githubusercontent.com/44196434/156903718-05982aeb-b9d2-450e-88d1-5265d1f96152.png)
-
