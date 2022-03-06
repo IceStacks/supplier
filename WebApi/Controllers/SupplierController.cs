@@ -1,11 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using MySql.Data.MySqlClient;
-using MySqlConnector;
 using WebApi.DbOperations;
 using WebApi.Models;
 
@@ -16,113 +12,97 @@ namespace WebApi.Controllers
     public class SupplierController : ControllerBase
     {
         private readonly SupplierDbContext _context;
+        private readonly IMapper _mapper;
 
-        public SupplierController(SupplierDbContext context)
+        public SupplierController(SupplierDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
-
-        // asagida yazdigim db baglantilari duzeltilecek. 
-        // DI ile yapmaya calisacagim,  simdilik gecici olarak bu sekilde kullandim.
-
-        // MySqlConnection connection = new MySqlConnection("Server=localhost;Database=IceStacks-Supplier;Uid=root;Pwd=55255Ahmet_;");
 
         [HttpGet]
         public IActionResult Index()
         {
-            // List<GetSuppliersViewModel> suppliers = new List<GetSuppliersViewModel>();
-
-            // connection.Open();
-
-            // MySqlCommand cmd = new MySqlCommand("select * from Suppliers", connection);
-            // MySqlDataReader reader = cmd.ExecuteReader();
-
-            // while(reader.Read())
-            // {
-            //     GetSuppliersViewModel supplier = new GetSuppliersViewModel();
-
-            //     supplier.Name = reader["name"].ToString();
-            //     supplier.Surname = reader["surname"].ToString();
-            //     supplier.Gender = reader["gender"].ToString();
-            //     supplier.Address = reader["address"].ToString();
-            //     supplier.Mail = reader["mail"].ToString();
-            //     supplier.Phone = reader["phone"].ToString();
-            //     supplier.CompanyName = reader["company_name"].ToString();
-            //     supplier.CompanyMail = reader["company_mail"].ToString();
-            //     supplier.CompanyPhone = reader["company_phone"].ToString();
-
-            //     suppliers.Add(supplier);
-            // }
-
-            // reader.Close();
-            // connection.Close();
-
             var suppliers = _context.Suppliers.ToList<Supplier>();
-            return Ok(suppliers);
+            
+            if(suppliers is null)
+            {
+                return NotFound("Suppliers bulunamadi");      // burada middleware yazilip oradan exception firlatilabilir.
+            }
+
+            List<GetSuppliersViewModel> suppliersViewModel = _mapper.Map<List<GetSuppliersViewModel>>(suppliers);
+
+            return Ok(suppliersViewModel);
         }
 
-        // [HttpGet("{id}")]
-        // public IActionResult Show(int id) // model ile olmali
-        // {
-        //     connection.Open();
-
-        //     MySqlCommand cmd = new MySqlCommand("select * from Suppliers where id = @id", connection);
-        //     cmd.Parameters.AddWithValue("@id", id);
+        [HttpGet("{id}")]
+        public IActionResult Show(int id) 
+        {
             
-        //     MySqlDataReader reader = cmd.ExecuteReader();
+            var supplier = _context.Suppliers.FirstOrDefault(x => x.Id == id);
 
-        //     GetSupplierDetailViewModel supplier = new GetSupplierDetailViewModel();
+            if(supplier is null)
+            {
+                return NotFound("Supplier bulunamadi");      
+            }
 
-        //     while(reader.Read())
-        //     {
-        //         supplier.Name = reader["name"].ToString();
-        //         supplier.Surname = reader["surname"].ToString();
-        //         supplier.Gender = reader["gender"].ToString();
-        //         supplier.Address = reader["address"].ToString();
-        //         supplier.Mail = reader["mail"].ToString();
-        //         supplier.Phone = reader["phone"].ToString();
-        //         supplier.CompanyName = reader["company_name"].ToString();
-        //         supplier.CompanyMail = reader["company_mail"].ToString();
-        //         supplier.CompanyPhone = reader["company_phone"].ToString();
-        //     }
+            GetSupplierDetailViewModel supplierViewModel = _mapper.Map<GetSupplierDetailViewModel>(supplier);
+
+            return Ok(supplierViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Store([FromBody] CreateSupplierModel newSupplier) 
+        {
+            if(newSupplier is null)
+            {
+                return BadRequest("CreateSupplierModel bulunamadi");    
+            }
+
+            Supplier supplier = _mapper.Map<Supplier>(newSupplier);  
+
+            _context.Suppliers.Add(supplier); 
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
+
+        // guncelleme kisminda sorun var, guncelleme yapmak yerine yeni supplier yaratiyor. Duzenlenecek
+        
+
+        [HttpPut("{id}")]
+        public IActionResult Edit(int id, [FromBody] UpdateSupplierModel updatedSupplier) 
+        {
+            Supplier supplier = _context.Suppliers.FirstOrDefault(x => x.Id == id);
+
+            if(supplier is null)
+            {
+                return NotFound("Supplier bulunamadi");      
+            }
+
+            supplier = _mapper.Map<Supplier>(updatedSupplier);
             
-        //     reader.Close();
-        //     connection.Close();
-        //     return Ok(supplier);
-        // }
+            _context.Update(supplier);
+            _context.SaveChanges();
 
-        // [HttpPost]
-        // public IActionResult Store([FromBody] CreateSupplierModel newSupplier) // model ile olmali
-        // {
-        //     connection.Open();
-        //     MySqlCommand cmd = new MySqlCommand("insert into Suppliers (name, surname, gender, address, mail, phone, company_name, company_mail, company_phone) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7, @p8, @p9)",connection);
-        //     cmd.Parameters.AddWithValue("@p1",newSupplier.Name);
-        //     cmd.Parameters.AddWithValue("@p2",newSupplier.Surname);
-        //     cmd.Parameters.AddWithValue("@p3",newSupplier.Gender);
-        //     cmd.Parameters.AddWithValue("@p4",newSupplier.Address);
-        //     cmd.Parameters.AddWithValue("@p5",newSupplier.Mail);
-        //     cmd.Parameters.AddWithValue("@p6",newSupplier.Phone);
-        //     cmd.Parameters.AddWithValue("@p7",newSupplier.CompanyName);
-        //     cmd.Parameters.AddWithValue("@p8",newSupplier.CompanyMail);
-        //     cmd.Parameters.AddWithValue("@p9",newSupplier.CompanyPhone);
-        //     cmd.ExecuteNonQuery();
-            
-        //     connection.Close();
-            
-        //     return Ok();
-        // }
+            return Ok();
+        }
 
-        // [HttpPut("{id}")]
-        // public IActionResult Edit(int id, [FromBody] Supplier updatedSupplier) // model ile olmali
-        // {
-            
-        //     return Ok();
-        // }
+        [HttpDelete("{id}")]
+        public IActionResult Destroy(int id)
+        {
+            Supplier supplier = _context.Suppliers.FirstOrDefault(x => x.Id == id);
 
-        // [HttpDelete("{id}")]
-        // public IActionResult Destroy(int id)
-        // {
-        //     return Ok();
-        // }
+            if(supplier is null)
+            {
+                return NotFound("Supplier bulunamadi");      
+            }
+
+            _context.Suppliers.Remove(supplier);
+            _context.SaveChanges();
+
+            return Ok();
+        }
     }
 }

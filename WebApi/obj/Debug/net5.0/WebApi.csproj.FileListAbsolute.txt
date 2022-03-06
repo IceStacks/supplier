@@ -85,3 +85,6 @@ C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\System.Configuration.Conf
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\MySql.Data.EntityFrameworkCore.dll
+C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\AutoMapper.dll
+C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\Newtonsoft.Json.dll
