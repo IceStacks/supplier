@@ -46,6 +46,9 @@ Kullanılan paketleri Nuget Package Manager ile de kurabilirsiniz, terminalden k
  ### Store
  ![createSupplier](https://user-images.githubusercontent.com/44196434/156903691-108077f1-0c4e-438e-86cb-308d5959740a.png)
  
+ ### Edit
+ ![updateSupplier](https://user-images.githubusercontent.com/44196434/156925029-d02e9f49-ce7a-4d4e-a4f2-6c341e6259c2.png)
+  
  ### Destroy
  ![deleteSupplier](https://user-images.githubusercontent.com/44196434/156903718-05982aeb-b9d2-450e-88d1-5265d1f96152.png)
 
