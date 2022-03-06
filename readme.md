@@ -34,10 +34,14 @@ MySql kullanmak için **WebApi** içerisinde:
  # Ekran görüntüleri
  
  ### Index
- ![getSuppliers](https://user-images.githubusercontent.com/44196434/156747164-85f255bb-82e3-4797-ba2c-26babbffbcfe.png)
- 
- ## Show
- ![supplierShow](https://user-images.githubusercontent.com/44196434/156756599-db44c95e-e759-4efa-9e69-862c1d772bfa.png)
+ ![getSuppliers](https://user-images.githubusercontent.com/44196434/156903685-1f6c53cf-6571-4bb4-bd99-251226e72e36.png)
 
- ## Store
- ![supplierStore](https://user-images.githubusercontent.com/44196434/156756626-ae0b5eca-e379-438e-a4f8-f4bc90e189ba.png)
+ ### Show
+ ![getSupplierDetail](https://user-images.githubusercontent.com/44196434/156903687-aa2a45dc-a17e-41b9-9b6c-79d570a9eac1.png)
+
+ ### Store
+ ![createSupplier](https://user-images.githubusercontent.com/44196434/156903691-108077f1-0c4e-438e-86cb-308d5959740a.png)
+ 
+ ### Destroy
+ ![deleteSupplier](https://user-images.githubusercontent.com/44196434/156903718-05982aeb-b9d2-450e-88d1-5265d1f96152.png)
+
