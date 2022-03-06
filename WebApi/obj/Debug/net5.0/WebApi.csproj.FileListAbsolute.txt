@@ -42,7 +42,6 @@ C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\WebApi.deps.json
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\WebApi.runtimeconfig.json
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\WebApi.runtimeconfig.dev.json
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\WebApi.dll
-C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\ref\WebApi.dll
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\WebApi.pdb
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\Humanizer.dll
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
@@ -76,3 +75,5 @@ C:\Projects\IceStacks\supplier\WebApi\obj\Debug\net5.0\WebApi.genruntimeconfig.c
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\AutoMapper.dll
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\FluentValidation.dll
+C:\Projects\IceStacks\supplier\WebApi\bin\Debug\net5.0\ref\WebApi.dll
