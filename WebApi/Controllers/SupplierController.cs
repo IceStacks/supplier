@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Application.SupplierOperations.Commands;
+using WebApi.Application.SupplierOperations.Validators;
 using WebApi.DbOperations;
 using WebApi.Models;
 
@@ -24,43 +27,39 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var suppliers = _context.Suppliers.ToList<Supplier>();
-            
-            List<GetSuppliersViewModel> suppliersViewModel = _mapper.Map<List<GetSuppliersViewModel>>(suppliers);
+            GetSuppliersQuery query = new GetSuppliersQuery(_context, _mapper);
 
-            return Ok(suppliersViewModel);
+            var result = query.Handle();
+
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
         public IActionResult Show(int id) 
         {
-            
-            var supplier = _context.Suppliers.FirstOrDefault(x => x.Id == id);
+            GetSupplierDetailQuery query = new GetSupplierDetailQuery(_context, _mapper);
+            GetSupplierDetailQueryValidator validator = new GetSupplierDetailQueryValidator();
 
-            if(supplier is null)
-            {
-                throw new InvalidOperationException("Aranan tedarikçi bulunamadı.");
-            }
-            
-            GetSupplierDetailViewModel supplierViewModel = _mapper.Map<GetSupplierDetailViewModel>(supplier);
+            query.SupplierId = id;
 
-            return Ok(supplierViewModel);
+            validator.ValidateAndThrow(query);
+
+            var result = query.Handle();
+            
+            return Ok(result);
         }
 
         [HttpPost]
         public IActionResult Store([FromBody] CreateSupplierModel newSupplier) 
         {
-            var supplier = _context.Suppliers.SingleOrDefault(supplier => supplier.Phone == newSupplier.Phone && supplier.Mail == newSupplier.Mail);
+            CreateSupplierCommand command = new CreateSupplierCommand(_context, _mapper);
+            CreateSupplierCommandValidator validator= new CreateSupplierCommandValidator();
 
-            if(supplier is not null)
-            {
-                throw new InvalidOperationException("Eklenecek tedarikçi zaten mevcut.");
-            }
-
-            supplier = _mapper.Map<Supplier>(newSupplier);  
-
-            _context.Suppliers.Add(supplier); 
-            _context.SaveChanges();
+            command.Model = newSupplier;
+            
+            validator.ValidateAndThrow(command);
+            
+            command.Handle();
 
             return Ok();
         }
@@ -68,15 +67,15 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public IActionResult Edit(int id, [FromBody] UpdateSupplierModel updatedSupplier) 
         {
-            Supplier supplier = _context.Suppliers.FirstOrDefault(x => x.Id == id);
+            UpdateSupplierCommand command = new UpdateSupplierCommand(_context,_mapper);
+            UpdateSupplierCommandValidator validator = new UpdateSupplierCommandValidator();
 
-            if(supplier is null)
-            {
-                throw new InvalidOperationException("Güncellenecek tedarikçi bulunamadı.");     
-            }
+            command.SupplierId = id;
+            command.Model = updatedSupplier;
 
-            _mapper.Map(updatedSupplier, supplier);
-            _context.SaveChanges();
+            validator.ValidateAndThrow(command);
+
+            command.Handle();
 
             return Ok();
         }
@@ -84,15 +83,14 @@ namespace WebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Destroy(int id)
         {
-            Supplier supplier = _context.Suppliers.FirstOrDefault(x => x.Id == id);
+            DeleteSupplierCommand command = new DeleteSupplierCommand(_context);
+            DeleteSupplierCommandValidator validator = new DeleteSupplierCommandValidator();
 
-            if(supplier is null)
-            {
-                throw new InvalidOperationException("Silinecek tedarikçi bulunamadı.");     
-            }
-    
-            _context.Suppliers.Remove(supplier);
-            _context.SaveChanges();
+            command.SupplierId = id;
+            
+            validator.ValidateAndThrow(command);
+
+            command.Handle();
 
             return Ok();
         }

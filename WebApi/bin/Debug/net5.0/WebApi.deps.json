@@ -35,6 +35,7 @@
         "dependencies": {
           "AutoMapper": "10.1.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
+          "FluentValidation": "10.3.6",
           "Microsoft.EntityFrameworkCore": "5.0.6",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.6",
           "Newtonsoft.Json": "13.0.1",
@@ -358,6 +359,17 @@
         },
         "compile": {
           "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
+      "FluentValidation/10.3.6": {
+        "runtime": {
+          "lib/net5.0/FluentValidation.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "10.3.6.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/FluentValidation.dll": {}
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -2311,6 +2323,13 @@
       "sha512": "sha512-xSWoVzOipuDU4PeZcUfaZQ+xqXU8QmGv5jrdlxt3MYm9xaOmrefqcfzGQ3SQ+D+8wfBa/ZwSuL0qKOVj080inA==",
       "path": "automapper.extensions.microsoft.dependencyinjection/8.1.1",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512"
+    },
+    "FluentValidation/10.3.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iMd370ZDx6ydm8t7bIFdRbSKX0e42lpvCtifUSbTSXOk5iKjmgl7HU0PXBhIWQAyIRi3gCwfMI9luj8H6K+byw==",
+      "path": "fluentvalidation/10.3.6",
+      "hashPath": "fluentvalidation.10.3.6.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "1b15460e-f307-4bb3-93f3-5f37f3c0228e",
+		"name": "Suppliers Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Update Supplier",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"\",\r\n  \"surname\": \"\",\r\n  \"gender\": \"\",\r\n  \"address\": \"Bandırma\",\r\n  \"mail\": \"\",\r\n  \"phone\": \"\",\r\n  \"companyName\": \"\",\r\n  \"companyMail\": \"\",\r\n  \"companyPhone\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/suppliers/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"suppliers",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Suppliers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/suppliers",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"suppliers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Supplier Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/suppliers/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"suppliers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Supplier",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Eda\",\r\n  \"surname\": \"Kaya\",\r\n  \"gender\": \"Kadın\",\r\n  \"address\": \"İzmir\",\r\n  \"mail\": \"eda@gmail.com\",\r\n  \"phone\": \"444-444-44-44\",\r\n  \"companyName\": \"eda-ky\",\r\n  \"companyMail\": \"eda-ky@gmail.com\",\r\n  \"companyPhone\": \"444-444-44-55\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/suppliers",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"suppliers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Supplier",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/suppliers/15",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"suppliers",
+						"15"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
