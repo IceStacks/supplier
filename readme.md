@@ -2,18 +2,6 @@
 
 Bu API .Net Core 5 ile geliştiriliyor.
 
-İlk olarak proje klasörü içerisinde alt kısımdaki komut çalıştırılarak bir 'WebApi' isminde bir Api oluşturmak için:
-
-    dotnet new webapi -n WebApi 
-
-Sonrasında hala proje klasörünün içerisindeyken şu komut ile 'SupplierSln' adında bir **sln** dosyası oluşturmak için:
-
-    dotnet new sln -n SupplierSln
-
-Artık WebApi ile SupplierSln'i birleştirmemiz gerekiyor. Bunun için:
-
-    dotnet sln add WebApi 
-
 Api'yi çalıştırmak için (**WebApi** klasörünün içerisinde):
 
     dotnet watch run
@@ -47,7 +35,7 @@ Kullanılan paketleri Nuget Package Manager ile de kurabilirsiniz, terminalden k
 |GET| https://localhost:5001/suppliers/id |Show|
 |PUT| https://localhost:5001/suppliers/id |Edit|
 |POST| https://localhost:5001/suppliers |Store|
-|DELETE| https://localhost:5001/suppliers/id |Edit|
+|DELETE| https://localhost:5001/suppliers/id |Destroy|
 
 <br>
 
