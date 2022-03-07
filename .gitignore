@@ -330,6 +330,6 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore,windows,aspnetcore,visualstudiocode
 
-.vs
-/.bin
-/.obj
+/.vs/
+/.bin/
+/.obj/
