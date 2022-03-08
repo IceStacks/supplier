@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,10 +25,14 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            // Console.WriteLine(Environment.GetEnvironmentVariables().ToString());
             services.AddDbContextPool<SupplierDbContext>(
-                options => options.UseMySql(Configuration.GetConnectionString("Default"), ServerVersion.AutoDetect(Configuration.GetConnectionString("Default"))
+                options => options.UseMySql(Configuration.GetConnectionString(Environment.GetEnvironmentVariable("CONNECTION_STRING")), ServerVersion.AutoDetect(Environment.GetEnvironmentVariable("CONNECTION_STRING"))
             )); 
+           
+            // services.AddDbContextPool<SupplierDbContext>(
+            //     options => options.UseMySql(Configuration.GetConnectionString("Default"), ServerVersion.AutoDetect(Configuration.GetConnectionString("Default"))
+            // )); 
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
@@ -40,6 +41,11 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            Console.WriteLine();
+            Console.WriteLine("GetEnvironmentVariables: ");
+            foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
+                Console.WriteLine("  {0} = {1}", de.Key, de.Value);
+
             GetSuppliersQuery query = new GetSuppliersQuery(_context, _mapper);
 
             var result = query.Handle();
@@ -48,7 +54,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Show(int id) 
+        public IActionResult Show(int id)
         {
             GetSupplierDetailQuery query = new GetSupplierDetailQuery(_context, _mapper);
             GetSupplierDetailQueryValidator validator = new GetSupplierDetailQueryValidator();
@@ -58,29 +64,29 @@ namespace WebApi.Controllers
             validator.ValidateAndThrow(query);
 
             var result = query.Handle();
-            
+
             return Ok(result);
         }
 
         [HttpPost]
-        public IActionResult Store([FromBody] CreateSupplierModel newSupplier) 
+        public IActionResult Store([FromBody] CreateSupplierModel newSupplier)
         {
             CreateSupplierCommand command = new CreateSupplierCommand(_context, _mapper);
-            CreateSupplierCommandValidator validator= new CreateSupplierCommandValidator();
+            CreateSupplierCommandValidator validator = new CreateSupplierCommandValidator();
 
             command.Model = newSupplier;
-            
+
             validator.ValidateAndThrow(command);
-            
+
             command.Handle();
 
             return Ok();
         }
-        
+
         [HttpPut("{id}")]
-        public IActionResult Edit(int id, [FromBody] UpdateSupplierModel updatedSupplier) 
+        public IActionResult Edit(int id, [FromBody] UpdateSupplierModel updatedSupplier)
         {
-            UpdateSupplierCommand command = new UpdateSupplierCommand(_context,_mapper);
+            UpdateSupplierCommand command = new UpdateSupplierCommand(_context, _mapper);
             UpdateSupplierCommandValidator validator = new UpdateSupplierCommandValidator();
 
             command.SupplierId = id;
@@ -100,7 +106,7 @@ namespace WebApi.Controllers
             DeleteSupplierCommandValidator validator = new DeleteSupplierCommandValidator();
 
             command.SupplierId = id;
-            
+
             validator.ValidateAndThrow(command);
 
             command.Handle();
