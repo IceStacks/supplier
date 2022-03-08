@@ -4,6 +4,8 @@ using System.Linq;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using WebApi.Application.SupplierOperations.Commands;
 using WebApi.Application.SupplierOperations.Validators;
 using WebApi.DbOperations;
@@ -22,6 +24,17 @@ namespace WebApi.Controllers
         {
             _context = context;
             _mapper = mapper;
+        }
+
+        [HttpGet("migrating")]
+        public IActionResult Migrating()
+        {
+            var migrator = _context.Database.GetService<IMigrator>();
+
+            migrator.Migrate();
+
+            return Ok("Successful");
+
         }
 
         [HttpGet]
