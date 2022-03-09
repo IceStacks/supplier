@@ -20,7 +20,8 @@ namespace WebApi
                     continue;
 
                 Environment.SetEnvironmentVariable(parts[0], parts[1]);
-                Console.WriteLine(parts[0] + "=" + parts[1]);
+                System.Console.WriteLine("Migrating");
+                Console.WriteLine(Environment.GetEnvironmentVariable("connection_str"));
             }
         }
     }
