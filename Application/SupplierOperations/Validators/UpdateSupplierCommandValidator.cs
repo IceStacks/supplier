@@ -7,6 +7,8 @@ namespace WebApi.Application.SupplierOperations.Validators
     {
         public UpdateSupplierCommandValidator()
         {
+            // name, surname, address, mail, phone, icin ust sinirlar belirlenecek.
+            // gender icin enum kontrolu yapilacak.
             RuleFor(x => x.SupplierId).GreaterThan(0);
             RuleFor(x => x.Model.Name).MinimumLength(2).When(y => y.Model.Name.Trim() != string.Empty);
             RuleFor(x => x.Model.Surname).MinimumLength(2).When(y => y.Model.Surname.Trim() != string.Empty);

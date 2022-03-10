@@ -7,6 +7,8 @@ namespace WebApi.Application.SupplierOperations.Validators
     {
         public CreateSupplierCommandValidator()
         {
+            // name, surname, address, mail, phone, icin ust sinirlar belirlenecek.
+            // gender icin enum kontrolu yapilacak.
             RuleFor(x => x.Model.Name).NotEmpty().MinimumLength(2);
             RuleFor(x => x.Model.Surname).NotEmpty().MinimumLength(2);
             RuleFor(x => x.Model.Gender).NotEmpty().Length(5);
