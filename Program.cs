@@ -11,11 +11,6 @@ namespace WebApi
         {
             
             CreateHostBuilder(args).Build().Run();
-            var root = Directory.GetCurrentDirectory();
-            var dotenv = Path.Combine(root, ".env");
-            System.Console.WriteLine("Migrating");
-            Console.WriteLine(Environment.GetEnvironmentVariable("connection_str"));
-            DotEnv.Load(dotenv);
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
