@@ -46,8 +46,12 @@ namespace WebApi.Controllers
             GetSuppliersQuery query = new GetSuppliersQuery(_context, _mapper);
 
             var result = query.Handle();
-
-            return Ok(result);
+            
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpGet("{id}")]
@@ -62,7 +66,11 @@ namespace WebApi.Controllers
 
             var result = query.Handle();
 
-            return Ok(result);
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpPost]
@@ -75,9 +83,13 @@ namespace WebApi.Controllers
 
             validator.ValidateAndThrow(command);
 
-            command.Handle();
-
-            return Ok();
+            var result = command.Handle();
+            
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpPut("{id}")]
@@ -91,9 +103,13 @@ namespace WebApi.Controllers
 
             validator.ValidateAndThrow(command);
 
-            command.Handle();
+            var result = command.Handle();
 
-            return Ok();
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpDelete("{id}")]
@@ -106,9 +122,13 @@ namespace WebApi.Controllers
 
             validator.ValidateAndThrow(command);
 
-            command.Handle();
+            var result = command.Handle();
 
-            return Ok();
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }
