@@ -51,17 +51,22 @@ Kullanılan paketleri Nuget Package Manager ile de kurabilirsiniz, terminalden k
 
  # Ekran görüntüleri
  
- ### Index
- ![getSuppliers](https://user-images.githubusercontent.com/44196434/156903685-1f6c53cf-6571-4bb4-bd99-251226e72e36.png)
-
- ### Show
- ![getSupplierDetail](https://user-images.githubusercontent.com/44196434/156903687-aa2a45dc-a17e-41b9-9b6c-79d570a9eac1.png)
-
- ### Store
- ![createSupplier](https://user-images.githubusercontent.com/44196434/156903691-108077f1-0c4e-438e-86cb-308d5959740a.png)
+ - Index
  
- ### Edit
- ![updateSupplier](https://user-images.githubusercontent.com/44196434/156925029-d02e9f49-ce7a-4d4e-a4f2-6c341e6259c2.png)
+    ![getSuppliers](https://user-images.githubusercontent.com/44196434/158078511-8c83e16d-55f5-470f-878f-43b0dcc81013.png)
+
+ - Show
+    
+    ![getSupplierDetail](https://user-images.githubusercontent.com/44196434/158078556-b527bb17-46d0-4bff-a404-0afa530cd305.png)
+
+ - Store
+
+    ![createSupplier](https://user-images.githubusercontent.com/44196434/158078564-dc7cbdee-8421-4e0d-85b4-b673538afb6e.png)
+ 
+ - Edit
   
- ### Destroy
- ![deleteSupplier](https://user-images.githubusercontent.com/44196434/156903718-05982aeb-b9d2-450e-88d1-5265d1f96152.png)
+    ![updateSupplier](https://user-images.githubusercontent.com/44196434/158078571-93011009-0808-484f-b253-3a049c175cb5.png)
+
+ - Destroy
+
+    ![deleteSupplier](https://user-images.githubusercontent.com/44196434/158078579-f9ffccbc-d096-4a71-97eb-5be4279ba3ab.png)
