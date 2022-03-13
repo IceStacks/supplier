@@ -6,9 +6,13 @@ Api'yi çalıştırmak için (**WebApi** klasörünün içerisinde):
 
     dotnet watch run
 
-ConnectionString'i environment variable olarak ayarlayın:
+ConnectionString'i environment variable olarak alıyoruz. 
 
-    CONNECTION_STRING_MYSQL=Server=localhost;Database=DbName;Uid=root;Pwd=rootpassword;
+Projeyi bilgisayarınıza çekip çalıştırmak isteseniz, sisteminizde environment variable olarak aşağıdaki variable'ları oluşturmalısınız.
+
+Docker ile çalıştırmak için, docker-compose.yml dosyasında environment variable kısmını doldurunuz.
+
+<br>
 
 # Paketler
 

@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
@@ -27,25 +23,26 @@ namespace WebApi.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("migrating")]
-        public IActionResult Migrating()
+        [HttpPost("migrating")]
+        public IActionResult Migrating([FromBody] string value)
         {
-            var migrator = _context.Database.GetService<IMigrator>();
+            if(value == "migrate")
+            {
+                var migrator = _context.Database.GetService<IMigrator>();
 
-            migrator.Migrate();
+                migrator.Migrate();
 
-            return Ok("Successful");
+                return Ok("Successful");
+            }
+            else {
+                return BadRequest("Invalid value");
+            }
 
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            Console.WriteLine();
-            Console.WriteLine("GetEnvironmentVariables: ");
-            foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
-                Console.WriteLine("  {0} = {1}", de.Key, de.Value);
-
             GetSuppliersQuery query = new GetSuppliersQuery(_context, _mapper);
 
             var result = query.Handle();
