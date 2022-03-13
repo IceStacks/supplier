@@ -12,6 +12,8 @@ Projeyi bilgisayarınıza çekip çalıştırmak isteseniz, sisteminizde environ
 
 Docker ile çalıştırmak için, docker-compose.yml dosyasında environment variable kısmını doldurunuz.
 
+![environments](https://user-images.githubusercontent.com/44196434/158075594-3c2c06cd-95d8-42e7-bfe0-2453cc715559.png)
+
 <br>
 
 # Paketler
