@@ -6,6 +6,10 @@ Api'yi çalıştırmak için (**WebApi** klasörünün içerisinde):
 
     dotnet watch run
 
+ConnectionString'i environment variable olarak ayarlayın:
+
+    CONNECTION_STRING_MYSQL=Server=localhost;Database=DbName;Uid=root;Pwd=rootpassword;
+
 # Paketler
 
 Kullanılan paketleri Nuget Package Manager ile de kurabilirsiniz, terminalden kurmak için **WebApi** içerisinde:
