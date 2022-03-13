@@ -9,7 +9,11 @@ namespace Extensions
         {
             if(string.IsNullOrEmpty(name))
             {
-                return Environment.GetEnvironmentVariable("CONNECTION_STRING_MYSQL");
+                string envServer = Environment.GetEnvironmentVariable("DB_HOST"); 
+                string envDatabase = Environment.GetEnvironmentVariable("DB_NAME"); 
+                string envUser = Environment.GetEnvironmentVariable("DB_USER"); 
+                string envPassword = Environment.GetEnvironmentVariable("DB_PASS"); 
+                return "Server="+envServer+";Database="+envDatabase+";Uid="+envUser+";Pwd="+envPassword+";";
             }
             else
             {
