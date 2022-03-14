@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Linq;
+using Utilities;
 using WebApi.DbOperations;
 using WebApi.Models;
 
@@ -22,17 +23,19 @@ namespace WebApi.Application.SupplierOperations.Commands
             _mapper = mapper;
         }
 
-        public void Handle()
+        public IResult Handle()
         {
             Supplier supplier = _context.Suppliers.FirstOrDefault(x => x.Id == SupplierId);
 
             if (supplier is null)
             {
-                throw new InvalidOperationException("Güncellenecek tedarikçi bulunamadı.");
+                return new ErrorResult("Güncellenecek tedarikçi bulunamadı.");
             }
 
             _mapper.Map(Model, supplier);
             _context.SaveChanges();
+
+            return new SuccessResult("Tedarikçi başarıyla güncellendi.");
         }
     }
 }

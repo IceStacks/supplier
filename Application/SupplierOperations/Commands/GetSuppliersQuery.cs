@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
+using Utilities;
 using WebApi.DbOperations;
 using WebApi.Models;
 
@@ -17,13 +18,13 @@ namespace WebApi.Application.SupplierOperations.Commands
             _mapper = mapper;
         }
 
-        public List<GetSuppliersViewModel> Handle()
+        public IDataResult<List<GetSuppliersViewModel>> Handle()
         {
             var suppliers = _context.Suppliers.OrderBy(x => x.Id).ToList<Supplier>();
 
             List<GetSuppliersViewModel> suppliersViewModel = _mapper.Map<List<GetSuppliersViewModel>>(suppliers);
 
-            return suppliersViewModel;
+            return new SuccessDataResult<List<GetSuppliersViewModel>>(suppliersViewModel, "Tedarikçiler başarıyla getirildi.");
         }
     }
 }

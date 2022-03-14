@@ -12,7 +12,7 @@ services:
       - 5000:5000
       - 5001:5001
     environment:
-      DB_HOST: "database"
+      DB_HOST: ""                 # WILL BE UPDATED
       DB_NAME: ""                 # WILL BE UPDATED
       DB_USER: ""                 # WILL BE UPDATED
       DB_PASS: ""                 # WILL BE UPDATED

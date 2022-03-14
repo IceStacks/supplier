@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
@@ -27,30 +23,35 @@ namespace WebApi.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("migrating")]
-        public IActionResult Migrating()
+        [HttpPost("migrating")]
+        public IActionResult Migrating([FromBody] string value)
         {
-            var migrator = _context.Database.GetService<IMigrator>();
+            if(value == "migrate")
+            {
+                var migrator = _context.Database.GetService<IMigrator>();
 
-            migrator.Migrate();
+                migrator.Migrate();
 
-            return Ok("Successful");
+                return Ok("Successful");
+            }
+            else {
+                return BadRequest("Invalid value");
+            }
 
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            Console.WriteLine();
-            Console.WriteLine("GetEnvironmentVariables: ");
-            foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
-                Console.WriteLine("  {0} = {1}", de.Key, de.Value);
-
             GetSuppliersQuery query = new GetSuppliersQuery(_context, _mapper);
 
             var result = query.Handle();
-
-            return Ok(result);
+            
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpGet("{id}")]
@@ -65,7 +66,11 @@ namespace WebApi.Controllers
 
             var result = query.Handle();
 
-            return Ok(result);
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpPost]
@@ -78,9 +83,13 @@ namespace WebApi.Controllers
 
             validator.ValidateAndThrow(command);
 
-            command.Handle();
-
-            return Ok();
+            var result = command.Handle();
+            
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpPut("{id}")]
@@ -94,9 +103,13 @@ namespace WebApi.Controllers
 
             validator.ValidateAndThrow(command);
 
-            command.Handle();
+            var result = command.Handle();
 
-            return Ok();
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpDelete("{id}")]
@@ -109,9 +122,13 @@ namespace WebApi.Controllers
 
             validator.ValidateAndThrow(command);
 
-            command.Handle();
+            var result = command.Handle();
 
-            return Ok();
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }
