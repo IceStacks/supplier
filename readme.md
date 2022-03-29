@@ -33,6 +33,8 @@ Kullanılan paketleri Nuget Package Manager ile de kurabilirsiniz, terminalden k
     dotnet add package Pomelo.EntityFrameworkCore.MySql -v 5.0
 
     dotnet add package FluentValidation -v 10.3.6
+
+    dotnet add package Bogus
     
     
 <br>
