@@ -10,12 +10,6 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
-
-    public class mgr
-    {
-        public string value { get; set; }
-    }
-
     [ApiController]
     [Route("[controller]s")]
     public class SupplierController : ControllerBase
@@ -35,8 +29,6 @@ namespace WebApi.Controllers
             if(value.Equals("migrate"))
             {
                 var migrator = _context.Database.GetService<IMigrator>();
-
-                System.Console.WriteLine(migrator);
 
                 migrator.Migrate();
 
