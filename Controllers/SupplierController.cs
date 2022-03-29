@@ -10,6 +10,12 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
+
+    public class mgr
+    {
+        public string value { get; set; }
+    }
+
     [ApiController]
     [Route("[controller]s")]
     public class SupplierController : ControllerBase
@@ -24,11 +30,13 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("migrating")]
-        public IActionResult Migrating([FromBody] string value)
+        public IActionResult Migrating([FromQuery] string value)
         {
-            if(value == "migrate")
+            if(value.Equals("migrate"))
             {
                 var migrator = _context.Database.GetService<IMigrator>();
+
+                System.Console.WriteLine(migrator);
 
                 migrator.Migrate();
 
@@ -37,7 +45,6 @@ namespace WebApi.Controllers
             else {
                 return BadRequest("Invalid value");
             }
-
         }
 
         [HttpGet]

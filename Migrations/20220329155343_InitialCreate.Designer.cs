@@ -8,8 +8,8 @@ using WebApi.DbOperations;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(SupplierDbContext))]
-    [Migration("20220304234358_DbInit")]
-    partial class DbInit
+    [Migration("20220329155343_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
