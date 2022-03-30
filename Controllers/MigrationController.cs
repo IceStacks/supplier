@@ -44,24 +44,30 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("fakedata")]
-        public IActionResult FakeData()
+        public IActionResult FakeData([FromQuery] string value)
         {
-           CreateSupplierCommand command = new CreateSupplierCommand(_context, _mapper);
-            
-            int n = 10;
-
-            for (int i = 0; i < n; i++)
+            if(value.Equals("fakedata"))
             {
-                var newSupplier = CreateSupplierModel.FakeData.Generate(1).First();
-                command.Model = newSupplier;
-                var result = command.Handle();
-                if(result.Success==false)
-                {
-                    return BadRequest(result);
-                }
-            }
+                CreateSupplierCommand command = new CreateSupplierCommand(_context, _mapper);
 
-            return Ok("success");
+                int n = 10;
+
+                for (int i = 0; i < n; i++)
+                {
+                    var newSupplier = CreateSupplierModel.FakeData.Generate(1).First();
+                    command.Model = newSupplier;
+                    var result = command.Handle();
+                    if (result.Success == false)
+                    {
+                        return BadRequest(result);
+                    }
+                }
+                return Ok("success");
+            }
+            else
+            {
+                return BadRequest("Invalid value");
+            }
         }
     }
 }
