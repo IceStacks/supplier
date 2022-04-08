@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using Utilities;
@@ -22,7 +23,7 @@ namespace WebApi.Application.SupplierOperations.Commands
 
         public IDataResult<GetSupplierDetailViewModel> Handle()
         {
-            var supplier = _context.Suppliers.Where(x => x.Id == SupplierId).SingleOrDefault();
+            var supplier = _context.Suppliers.Include(x => x.Company).Where(x => x.Id == SupplierId).SingleOrDefault();
 
             if (supplier is null)
             {

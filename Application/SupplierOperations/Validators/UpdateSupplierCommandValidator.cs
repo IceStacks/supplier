@@ -14,9 +14,9 @@ namespace WebApi.Application.SupplierOperations.Validators
             RuleFor(x => x.Model.Address).NotEmpty().MaximumLength(50).When(y => y.Model.Address.Trim() != string.Empty);
             RuleFor(x => x.Model.Mail).EmailAddress().When(y => y.Model.Mail.Trim() != string.Empty);
             RuleFor(x => x.Model.Phone).MinimumLength(10).MaximumLength(14).When(y => y.Model.Phone.Trim() != string.Empty); // kontrol edilecek
-            RuleFor(x => x.Model.CompanyName).MinimumLength(2).MaximumLength(20).When(y => y.Model.CompanyName.Trim() != string.Empty); 
-            RuleFor(x => x.Model.CompanyMail).EmailAddress().When(y => y.Model.CompanyMail.Trim() != string.Empty);
-            RuleFor(x => x.Model.CompanyPhone).MinimumLength(10).MaximumLength(14).When(y => y.Model.CompanyPhone.Trim() != string.Empty); 
+            RuleFor(x => x.Model.Company.CompanyName).MinimumLength(2).MaximumLength(20).When(y => y.Model.Company.CompanyName.Trim() != string.Empty); 
+            RuleFor(x => x.Model.Company.CompanyMail).EmailAddress().When(y => y.Model.Company.CompanyMail.Trim() != string.Empty);
+            RuleFor(x => x.Model.Company.CompanyPhone).MinimumLength(10).MaximumLength(14).When(y => y.Model.Company.CompanyPhone.Trim() != string.Empty); 
         }
     }
 }

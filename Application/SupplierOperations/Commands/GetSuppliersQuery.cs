@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using Utilities;
@@ -20,7 +21,7 @@ namespace WebApi.Application.SupplierOperations.Commands
 
         public IDataResult<List<GetSuppliersViewModel>> Handle()
         {
-            var suppliers = _context.Suppliers.OrderBy(x => x.Id).ToList<Supplier>();
+            var suppliers = _context.Suppliers.OrderBy(x => x.Id).Include(x => x.Company).ToList<Supplier>();
 
             List<GetSuppliersViewModel> suppliersViewModel = _mapper.Map<List<GetSuppliersViewModel>>(suppliers);
 

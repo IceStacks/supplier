@@ -16,14 +16,11 @@ namespace WebApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.6");
 
-            modelBuilder.Entity("WebApi.Models.Supplier", b =>
+            modelBuilder.Entity("WebApi.Models.Company", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("longtext");
 
                     b.Property<string>("CompanyMail")
                         .HasColumnType("longtext");
@@ -34,8 +31,25 @@ namespace WebApi.Migrations
                     b.Property<string>("CompanyPhone")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Gender")
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("WebApi.Models.Supplier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
                         .HasColumnType("longtext");
+
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<string>("Mail")
                         .HasColumnType("longtext");
@@ -51,7 +65,20 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompanyId");
+
                     b.ToTable("Suppliers");
+                });
+
+            modelBuilder.Entity("WebApi.Models.Supplier", b =>
+                {
+                    b.HasOne("WebApi.Models.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Company");
                 });
 #pragma warning restore 612, 618
         }
