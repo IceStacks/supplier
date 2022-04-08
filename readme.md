@@ -49,17 +49,22 @@ Kullanılan paketleri Nuget Package Manager ile de kurabilirsiniz, terminalden k
 |POST| https://localhost:5001/suppliers |Store|
 |DELETE| https://localhost:5001/suppliers/id |Destroy|
 
+|HTTP|URL|METOT|
+|---|---|---|
+|POST| https://localhost:5001/migrations/migrating?value=migrate |Migrate|
+|POST| https://localhost:5001/migrations/fakedata?value=fakedata |FakeData|
+
 <br>
 
  # Ekran görüntüleri
  
  - Index
  
-    ![getSuppliers](https://user-images.githubusercontent.com/44196434/158078511-8c83e16d-55f5-470f-878f-43b0dcc81013.png)
+    ![getSuppliers](https://user-images.githubusercontent.com/44196434/162528096-4db369df-b254-4aa7-a21b-775ce63e8338.png)
 
  - Show
     
-    ![getSupplierDetail](https://user-images.githubusercontent.com/44196434/158078556-b527bb17-46d0-4bff-a404-0afa530cd305.png)
+    ![getSupplierDetail](https://user-images.githubusercontent.com/44196434/162528089-b9c9a100-518b-4397-abef-c1686b653128.png)
 
  - Store
 
