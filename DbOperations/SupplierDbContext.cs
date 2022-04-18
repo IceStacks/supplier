@@ -6,6 +6,6 @@ namespace WebApi.DbOperations
     {
         public SupplierDbContext(DbContextOptions<SupplierDbContext> options) : base(options)     {}
         public DbSet<Supplier> Suppliers { get; set; }
-    
+        public DbSet<Company> Companies { get; set; }
     }
 }

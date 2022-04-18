@@ -9,7 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using WebApi.DbOperations;
-using WebApi.Middlewares;
 using WebApi.Services;
 
 namespace WebApi
@@ -56,8 +55,6 @@ namespace WebApi
             app.UseRouting();
 
             app.UseAuthorization();
-
-            app.UseCustomExceptionMiddle();
 
             app.UseEndpoints(endpoints =>
             {
